@@ -1,0 +1,44 @@
+/* 
+
+Section: Footer
+
+
+*/
+
+.footer__container {
+  width: 100%;
+  height: 25vh;
+}
+
+.footer__media {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+
+}
+
+.footer__links {
+  margin-left: 12px;
+  font-size: 32px;
+}
+
+/* 
+
+Shapes Styles
+
+*/
+
+.starlight01 {
+  /* background-image: url("./assets/starlit_background.gif"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+}
