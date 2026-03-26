@@ -9,7 +9,6 @@ const Nav = () => {
   return (
     <div>
       <section id="nav">
-        {/* <img className="starlight01" src={starlit_background} alt="" /> */}
         <div className="container">
           <div className="row">
             <div className="nav__box">

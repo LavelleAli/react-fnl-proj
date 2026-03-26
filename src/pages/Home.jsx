@@ -15,7 +15,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetch("https://api.themoviedb.org/3/movie/now_playing", options)
+    fetch("https://api.themoviedb.org/3/movie/top_rated", options)
       .then((res) => res.json())
       .then((res) => setMovieRes(res.results))
       .catch((err) => console.error(err));

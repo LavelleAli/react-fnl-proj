@@ -9,7 +9,7 @@ const Landing = () => {
     <div className='landing__section'>
       <img className="starlight01" src={starlit_background} alt="" />
       <h1 className="movie__header">
-        <span className="colored__words--white">Starlight Movie Library</span>
+        <span className="colored__words--white">Starlife Media Library</span>
       </h1>
       <SearchResults />
     </div>

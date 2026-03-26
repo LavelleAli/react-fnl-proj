@@ -4,17 +4,28 @@ Section: Nav
 
 */
 
+#nav {
+  background-image: url('../assets/starlit_background.gif');
+}
+
+.container {
+  margin-top: 64px;
+}
+
 .nav__box {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1000px;
   margin: 0 auto;
   border: 1px solid rgb(255, 255, 255);
-  border-radius: 24px;
+  border-top: none;
+  border-bottom: none;
+  border-radius: 14px;
   border-color: #eee580;
   padding: 16px;
   display: flex;
   justify-content: center;
   font-size: 12px;
+  
 }
 
 .nav__list {
