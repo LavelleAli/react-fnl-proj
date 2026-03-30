@@ -1,38 +1,40 @@
 .modal {
-  margin-top: 5%;
-  margin-left: 20%;
-  /* transform: translate(-50%, -50%); */
-  /* position: absolute; */
-  /* top: 50%; */
-  /* left: 50%; */
-  width: 100%;
-  max-width: 1100px;
-  height: 700px;
-  border-radius: 4px;
-  overflow: hidden;
-  display: flex;
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
   opacity: 0;
   visibility: hidden;
   transition: opacity 400ms ease, visibility 400ms ease;
+  z-index: 40;
 }
 
 .modal--open {
-  z-index: 1;
   opacity: 1;
   visibility: visible;
 }
 
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: url("../assets/starlit_background.gif");
+}
+
+.modal__shell {
+  position: relative;
+  width: min(92vw, 720px);
+  z-index: 2;
+}
+
 .modal__half {
-  width: 40%;
-  height: 40%;
+  width: 100%;
+  min-height: 520px;
   border-radius: 2px;
-  
 }
 
 .login__modal--left {
-  background-color: #30303033;
   position: relative;
-  
+  border-radius: 16px;
 }
 
 .colored__words--white {
@@ -46,10 +48,8 @@
   text-align: center;
   padding-top: 32px;
   border-radius: 8px;
-  /* background-image: linear-gradient(#b5a72615, #00000043), url("../assets/earthRotatingGif.gif"); */
   background-repeat: no-repeat;
   box-shadow: 0 20px 80px 0 rgb(200, 187, 115, 0.25);
-  /* display: none; */
 }
 
 .login form {
@@ -190,10 +190,10 @@ Modal
   position: absolute;
   top: 16px;
   right: 16px;
-  font-size: 32px;
+  font-size: 24px;
   cursor: pointer;
   z-index: 100;
-  visibility: hidden;
+  visibility: visible;
 }
 
 .fa-spinner {
@@ -210,30 +210,3 @@ Modal
   }
 }
 
-
-/* 
-
-Toggle Modal
-
-*/
-
-.test__btn {
-    /* position: absolute;
-    left: 50%;
-    width: 10%; */
-    max-width: 1200px;
-    border: 0;
-    outline: 0;
-    /* filter: drop-shadow(0 0px 2px #ffff); */
-    background-color: #000000;
-    color: #ffff;
-    font-size: 20px;
-    transition: all 500ms ease ;
-    margin-bottom: 32px;
-}
-
-.test__btn:hover {
-    transform: scale(.9);
-    transition: all 500ms ease ;
-    filter: drop-shadow(0 0px 4px #ffff);
-}

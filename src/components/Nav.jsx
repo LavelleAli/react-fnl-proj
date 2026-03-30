@@ -1,19 +1,10 @@
 import { Link } from "react-router-dom";
 import "./Nav.css";
-import React, { useState } from "react";
 
 
 
-const Nav = () => {
-  const [modalState, setModalState] = useState(false);
 
-  function toggleModal() {
-    setModalState((prevModalState) => !prevModalState);
-    
-  };
-
-  
-
+const Nav = ({ openModal }) => {
   return (
     <div>
       <section id="nav">
@@ -43,30 +34,17 @@ const Nav = () => {
                     </span>
                   </Link>
                 </li>
-
-
-
-
+                
                 <li className="nav__item">
-                  <Link to="/login">
-                  <button className="home__btn nav__link" onClick={toggleModal}>
+                  <button className="home__btn nav__link" onClick={openModal}>
                     <span className="colored__words--white">
                       Login
                     </span>
                   </button>
-                  
-                  </Link>
-                  
-                  
                 </li>
-
-
-
-
-
-
               </ul>
             </div>
+
           </div>
         </div>
       </section>

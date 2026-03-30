@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Landing from "../components/Landing";
 import "./Home.css";
 
-const Home = () => {
+const Home = ({ modalState }) => {
   const [movieRes, setMovieRes] = useState([]);
 
   const options = {
@@ -21,11 +21,9 @@ const Home = () => {
       .catch((err) => console.error(err));
   }, []);
 
-  console.log(movieRes);
-
   function featuredMovies(movies) {
     return (
-      <div className="container">
+      <div className="container" key={movies.id}>
         <div className="row">
           <div className="movie__display">
             <p className="movie__poster">
@@ -51,7 +49,7 @@ const Home = () => {
   }
 
   return (
-    <>
+    <div className={modalState ? "home home--faded" : "home"}>
       <Landing />
       <h1 className="page__header">
         <span className="colored__words--white">Featured Movies</span>
@@ -61,7 +59,7 @@ const Home = () => {
           {movieRes.map((movies) => featuredMovies(movies))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

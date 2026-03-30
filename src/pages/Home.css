@@ -7,6 +7,16 @@
   font-family: "Bentham", sans-serif;
 }
 
+.home {
+  transition: opacity 300ms ease, filter 300ms ease;
+}
+
+.home--faded {
+  opacity: 0.2;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
 .page__header {
   width: 30%;
   margin: 0 auto;
