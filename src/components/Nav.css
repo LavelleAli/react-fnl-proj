@@ -14,14 +14,14 @@ Section: Nav
 
 .nav__box {
   width: 100%;
-  max-width: 1000px;
+  max-width: 500px;
   margin: 0 auto;
   border: 1px solid rgb(255, 255, 255);
   border-top: none;
   border-bottom: none;
-  border-radius: 14px;
+  border-radius: 8px;
   border-color: #eee580;
-  padding: 16px;
+  padding: 2px;
   display: flex;
   justify-content: center;
   font-size: 12px;
@@ -46,7 +46,7 @@ Section: Nav
 }
 
 .nav__link:hover {
-  color: red;
+  /* color: red; */
   font-size: 18px;
   transition: all 500ms ease;
 }
@@ -59,11 +59,11 @@ Section: Nav
 }
 
 .home__btn {
-  padding: 1em 2em;
+  padding: 20px 20px;
   background-color: rgb(0, 0, 0);
-  border: none;
+  border: 0;
   color: #f0f0f0;
-  border-radius: 1000px;
+  border-radius: 10px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -77,28 +77,30 @@ Section: Nav
   position: absolute;
   width: 104%;
   height: 104%;
-  border-radius: 1000px;
-  background-image: linear-gradient(to bottom right, #eee580, #9e720c);
-  z-index: -1;
+  border-radius: 10px;
+  /* background-image: linear-gradient(to bottom right, #eee580, #9e720c); */
+  /* z-index: -1; */
 }
 
 .home__btn:hover {
-  z-index: 0;
-  box-shadow: 40px 0 100px #eee580, -40px 0 100px #9e720c;
+  /* z-index: 0; */
+  /* box-shadow: 0px 0px 10px #eee580, -40px 0 100px #9e720c; */
   transition: all 300ms ease;
 }
+
 .brow__link {
   width: 100%;
   display: flex;
-  padding: 1em 2em;
+  padding: 10px 20px;
 }
 
 .brow__link:hover {
-  width: 100%;
+  /* width: 100%; */
   /* display: flex; */
   /* padding: 1em 2em; */
   /* cursor: not-allowed; */
 }
+
 
 .search__wrapper {
   font-size: 16px;

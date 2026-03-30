@@ -1,0 +1,239 @@
+.modal {
+  margin-top: 5%;
+  margin-left: 20%;
+  /* transform: translate(-50%, -50%); */
+  /* position: absolute; */
+  /* top: 50%; */
+  /* left: 50%; */
+  width: 100%;
+  max-width: 1100px;
+  height: 700px;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 400ms ease, visibility 400ms ease;
+}
+
+.modal--open {
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal__half {
+  width: 40%;
+  height: 40%;
+  border-radius: 2px;
+  
+}
+
+.login__modal--left {
+  background-color: #30303033;
+  position: relative;
+  
+}
+
+.colored__words--white {
+  color: rgb(255, 255, 255);
+  filter: drop-shadow(0px 0px 7px #ffe604);
+}
+
+.login {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding-top: 32px;
+  border-radius: 8px;
+  /* background-image: linear-gradient(#b5a72615, #00000043), url("../assets/earthRotatingGif.gif"); */
+  background-repeat: no-repeat;
+  box-shadow: 0 20px 80px 0 rgb(200, 187, 115, 0.25);
+  /* display: none; */
+}
+
+.login form {
+  width: 100%;
+  max-width: 450px;
+  /* background: rgba(0, 0, 0, 0.75 ); */
+  border-radius: 4px;
+  padding: 20px 80px;
+  margin: 0 auto;
+}
+
+.loginTitle {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 28px;
+}
+
+.login input {
+  width: 100%;
+  height: 20px;
+  border: 0;
+  outline: 0;
+  /* border-top: none;
+    border-left: none;
+    border-right: none; */
+  border-radius: 8px;
+  margin-bottom: 16px;
+  padding: 16px;
+  background: #141414;
+  color: #ffff;
+  /* filter: drop-shadow(0 0px 2px #b29946); */
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.login input::placeholder {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.login__btn {
+  width: 50%;
+  margin-bottom: 10px;
+  border: 0;
+  border-radius: 4px;
+  outline: 0;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: 900;
+  /* filter: drop-shadow(0 .5px 2px #fff6a7); */
+  background-color: #000000;
+  color: white;
+  transition: all 500ms ease;
+  cursor: pointer;
+}
+
+.login__btn:hover {
+  transform: scale(0.95);
+  filter: drop-shadow(0 0px 1px #f1f0bf);
+}
+
+.form__help {
+  display: flex;
+  font-size: 14px;
+}
+
+.form__help p {
+  width: 30%;
+}
+
+.remember {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.remember input {
+  width: 16px;
+  height: 16px;
+}
+
+.remember label {
+  margin-right: 110px;
+}
+
+.form__switch {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 20px;
+  color: #9a9a9aa8;
+}
+
+.lgsw {
+  margin-left: 16px;
+  cursor: pointer;
+  transition: all 300ms ease;
+  transform: scale(1);
+}
+
+
+/* 
+
+Modal
+
+*/
+
+.modal__overlay {
+  position: absolute;
+  background-color: transparent;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  visibility: hidden;
+}
+
+.modal__overlay--visible {
+  visibility: visible;
+}
+
+.modal__loading {
+    background-color: transparent;
+}
+
+.modal__success {
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  color: #f1f0bf;
+  padding: 24px;
+}
+
+.modal__exit {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 32px;
+  cursor: pointer;
+  z-index: 100;
+  visibility: hidden;
+}
+
+.fa-spinner {
+  animation: spinner 1250ms linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* 
+
+Toggle Modal
+
+*/
+
+.test__btn {
+    /* position: absolute;
+    left: 50%;
+    width: 10%; */
+    max-width: 1200px;
+    border: 0;
+    outline: 0;
+    /* filter: drop-shadow(0 0px 2px #ffff); */
+    background-color: #000000;
+    color: #ffff;
+    font-size: 20px;
+    transition: all 500ms ease ;
+    margin-bottom: 32px;
+}
+
+.test__btn:hover {
+    transform: scale(.9);
+    transition: all 500ms ease ;
+    filter: drop-shadow(0 0px 4px #ffff);
+}

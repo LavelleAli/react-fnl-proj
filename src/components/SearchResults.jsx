@@ -51,11 +51,7 @@ const SearchResults = () => {
           <div className="search__wrapper">
             <label className="nav__link nav__label" htmlFor="movieSearchTerm">
               <span className="colored__words--white">
-                <FontAwesomeIcon
-                  icon="fa-solid fa-magnifying-glass"
-                  bounce
-                  style={{ color: "rgb(255, 212, 59)" }}
-                />
+                
                 Search Movies :
               </span>
             </label>
