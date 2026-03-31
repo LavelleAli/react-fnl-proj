@@ -3,6 +3,7 @@ import Nav from "./components/Nav.jsx";
 import Home from "./pages/Home.jsx";
 import BrowseMovies from "./pages/BrowseMovies.jsx";
 import Login from "./pages/Login.jsx";
+import Player from "./pages/Player.jsx";
 import Footer from "./components/Footer.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState } from "react";
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home modalState={modalState} />} />
           <Route path="/browse-movies" element={<BrowseMovies />} />
+          <Route path="/player/:id" element={<Player />} />
         </Routes>
         <Login modalState={modalState} toggleModal={toggleModal} />
         <Footer />

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./SearchResults.css";
-import starlit_background from '../assets/starlit_background.gif'
+
 
 const SearchResults = () => {
   const [movieSearched, setMovieSearched] = useState("");
@@ -45,7 +44,7 @@ const SearchResults = () => {
 
   return (
     <div>
-      {/* <img className="starlight01" src={starlit_background} alt="" /> */}
+      
       <ul>
         <li className="nav__item search__bar">
           <div className="search__wrapper">
@@ -55,18 +54,11 @@ const SearchResults = () => {
                 Search Movies :
               </span>
             </label>
-            <select id="filterType" className="nav__label nav__link">
+            {/* <select id="filterType" className="nav__label nav__link">
               <option value="title">Title</option>
               <option value="year">Year</option>
-              {/* <option value="imdbID">imdbID</option> */}
-            </select>
-            <input
-              className="search__movie--input"
-              type="number"
-              id="movieSearchYear"
-              placeholder="Year (optional)"
-              autoComplete="off"
-            />
+              <option value="imdbID">imdbID</option>
+            </select> */}
             <input
               className="search__movie--input"
               type="text"
@@ -80,7 +72,6 @@ const SearchResults = () => {
         </li>
       </ul>
       <div className="movie__info">
-      
         {foundMovies.map((movie) => movieInfo(movie))}
       </div>
     </div>

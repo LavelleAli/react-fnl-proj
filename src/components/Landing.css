@@ -17,3 +17,12 @@
 }
 
 
+.test__img {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+    border-radius: 10px;
+
+    
+}

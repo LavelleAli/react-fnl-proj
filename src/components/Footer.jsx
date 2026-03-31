@@ -1,4 +1,3 @@
-import starlit_background from '../assets/starlit_background.gif'
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Footer.css";

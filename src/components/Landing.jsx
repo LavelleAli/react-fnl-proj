@@ -1,17 +1,17 @@
 import "./Landing.css";
-import SearchResults from "./SearchResults";
-import starlit_background from '../assets/starlit_background.gif'
+import Earth from "../assets/earthRotatingGif.gif";
+
 
 const Landing = () => {
-  
-
   return (
-    <div className='landing__section'>
-      <img className="starlight01" src={starlit_background} alt="" />
+    <div className="landing__section">
       <h1 className="movie__header">
         <span className="colored__words--white">Starlife Media Library</span>
       </h1>
-      <SearchResults />
+      <img className="test__img" src={Earth} alt="" /> // Placeholder for a another image png, svg, || gif
+      <h1 className="page__header">
+        <span className="colored__words--white">Featured Movies</span>
+      </h1>
     </div>
   );
 };
