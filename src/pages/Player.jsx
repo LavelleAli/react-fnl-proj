@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import "./Player.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const Player = () => {
-
-    const {id} =useParams();
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   const [apiData, setApiData] = useState({
     name: "",
     key: "",
     publish_at: "",
     type: "",
- 
   });
 
   const options = {
@@ -33,13 +33,16 @@ const Player = () => {
 
   return (
     <div className="player">
-      <a href="/">
+      
         <FontAwesomeIcon
           className="player__backBtn"
           icon="fa-solid fa-circle-arrow-left"
           style={{ color: "rgb(255, 239, 181)", fontSize: "2.5rem" }}
+          onClick={() => {
+            navigate("/");
+          }}
         />
-      </a>
+      
       <iframe
         width="90%"
         height="90%"
@@ -49,9 +52,18 @@ const Player = () => {
         allowFullScreen
       ></iframe>
       <div className="player__info">
-        <p>{apiData?.published_at?.slice(0,10)}</p>
-        <p>{apiData.name}</p>
-        <p>{apiData.type}</p>
+        <p>
+          <span className="colored__words--white">
+            {apiData?.published_at?.slice(0, 10)}
+          </span>
+        </p>
+        <p>
+          <span className="colored__words--white">{apiData.name}</span>
+        </p>
+        <p>
+          {" "}
+          <span className="colored__words--white">{apiData.type}</span>
+        </p>
       </div>
     </div>
   );

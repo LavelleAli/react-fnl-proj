@@ -14,6 +14,8 @@ const MovieShowcase = ({ modalState, title, category, id }) => {
     },
   };
 
+
+  // This mounts the movies on the page automatically;
   useEffect(() => {
     fetch(
       `https://api.themoviedb.org/3/movie/${category ? category : "now_playing"}`,

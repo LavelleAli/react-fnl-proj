@@ -8,11 +8,10 @@ const SearchResults = () => {
   const [foundMovies, setFoundMovies] = useState([]);
 
   async function searchMovie(event) {
-    const searchValue = event.target.value;
-    setMovieSearched(searchValue);
+    setMovieSearched(event.target.value);
 
     const { data } = await axios.get(
-      `http://www.omdbapi.com/?apikey=e8773e4&s=${searchValue || ""}`,
+      `http://www.omdbapi.com/?apikey=e8773e4&s=${movieSearched || ""}`,
     );
 
     setFoundMovies(data.Search || []);

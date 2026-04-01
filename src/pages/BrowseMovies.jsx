@@ -6,7 +6,7 @@ const BrowseMovies = () => {
   return (
     <div>
       <h1 className="movie__header">
-        <span className="colored__words--white">Starlight Movie Library</span>
+        <span className="colored__words--white">Starlife Movie Library</span>
       </h1>
       <SearchResults/>
       <Movies />

@@ -94,14 +94,6 @@ Section: Nav
   padding: 10px 20px;
 }
 
-.brow__link:hover {
-  /* width: 100%; */
-  /* display: flex; */
-  /* padding: 1em 2em; */
-  /* cursor: not-allowed; */
-}
-
-
 .search__wrapper {
   font-size: 16px;
   font-weight: 700;
