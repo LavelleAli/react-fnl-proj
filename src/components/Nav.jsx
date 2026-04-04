@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Nav.css";
 
-
-
-
-const Nav = ({ openModal }) => {
+const Nav = ({ openModal, currentUser, onLogout }) => {
   return (
     <div>
       <section id="nav">
@@ -36,11 +33,19 @@ const Nav = ({ openModal }) => {
                 </li>
                 
                 <li className="nav__item">
-                  <button className="home__btn nav__link" onClick={openModal}>
-                    <span className="colored__words--white">
-                      Login
-                    </span>
-                  </button>
+                  {currentUser ? (
+                    <button className="home__btn nav__link" onClick={onLogout}>
+                      <span className="colored__words--white">
+                        Logout
+                      </span>
+                    </button>
+                  ) : (
+                    <button className="home__btn nav__link" onClick={openModal}>
+                      <span className="colored__words--white">
+                        Login
+                      </span>
+                    </button>
+                  )}
                 </li>
               </ul>
             </div>

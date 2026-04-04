@@ -45,6 +45,32 @@ html {
   background-image: url('./assets/starlit_background.gif');
 }
 
+.auth__loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 32px;
+}
+
+.auth__prompt {
+  width: 100%;
+  max-width: 760px;
+  margin: 48px auto;
+  padding: 24px;
+  text-align: center;
+}
+
+.auth__prompt--title {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.auth__prompt--button {
+  margin: 0 auto;
+}
+
 /*
 
 Section: Nav 

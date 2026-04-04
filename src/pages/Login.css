@@ -18,12 +18,26 @@
   position: absolute;
   inset: 0;
   background: url("../assets/starlit_background.gif");
+  opacity: 0;
+  transition: opacity 400ms ease;
 }
 
 .modal__shell {
   position: relative;
   width: min(92vw, 720px);
   z-index: 2;
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+
+.modal--open .modal__backdrop {
+  opacity: 1;
+}
+
+.modal--open .modal__shell {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .modal__half {
@@ -65,6 +79,13 @@
   font-size: 30px;
   font-weight: 500;
   margin-bottom: 28px;
+}
+
+.login__prompt {
+  margin: 0 auto 16px;
+  font-size: 16px;
+  max-width: 420px;
+  line-height: 1.5;
 }
 
 .login input {
@@ -209,4 +230,3 @@ Modal
     transform: rotate(360deg);
   }
 }
-

@@ -20,7 +20,7 @@ const Movies = () => {
     const { data } = await axios.get(
       "https://api.themoviedb.org/3/movie/now_playing",
       options,
-      "http://www.omdbapi.com/?apikey=e8773e4&s=Demon+Slayer",
+      // "http://www.omdbapi.com/?apikey=e8773e4&s=Demon+Slayer",
     );
     // console.log(data.results);
     setMovies(data.results || data.Search);
@@ -34,21 +34,18 @@ const Movies = () => {
     return (
       <div className="movie__card" key={movie.imdbID || movies.id}>
         <div className="movie__card--container">
-          <p className="movie__card--item movie__card--poster">
-            <img
-              src={`https://image.tmdb.org/t/p/w500` + movie.backdrop_path}
-              alt=""
-            />
-          </p>
-          <p className="movie__card--item">
-            {movie.original_title}
-          </p>
-          <p className="movie__card--item">
-            <b>Type:</b> {movie.Type}
-          </p>
-          <p className="movie__card--item">
-            {movie.release_date}
-          </p>
+          <Link to={`/movie/${movie.id}`} className="movie__poster">
+              <img 
+                className="movie__card--item movie__card--poster"
+                src={`https://image.tmdb.org/t/p/w500` + movie.backdrop_path}
+                alt=""
+              />
+            <p className="movie__card--item">
+              <span className="colored__words--white">
+                {movie.title}
+              </span>
+            </p>
+          </Link>
         </div>
       </div>
     );
@@ -57,7 +54,7 @@ const Movies = () => {
   return (
     <div>
       <div className="movies">
-        {movies?.map((movie) => movieInfo(movie)).slice(0, 8)}
+        {movies?.map((movie) => movieInfo(movie)).slice(0, 4)}
       </div>
     </div>
   );

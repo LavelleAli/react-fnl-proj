@@ -27,25 +27,29 @@ const signup = async (name, email, password) => {
             authProvider: "local",
             email,
         })
+        return true;
     }
     catch (error) {
         console.log(error);
         alert(error);
+        return false;
     }
 }
 
 const login = async (email, password) => {
     try{
         await signInWithEmailAndPassword(auth, email, password)
+        return true;
     }
     catch (error) {
         console.log(error);
         alert(error);
+        return false;
     }
 }
 
-const logout = () => {
-    signOut(auth)
+const logout = async () => {
+    await signOut(auth)
 }
 
 export { auth, db, login, signup, logout }

@@ -39,7 +39,7 @@ const Player = () => {
           icon="fa-solid fa-circle-arrow-left"
           style={{ color: "rgb(255, 239, 181)", fontSize: "2.5rem" }}
           onClick={() => {
-            navigate("/");
+            navigate(-1);
           }}
         />
       

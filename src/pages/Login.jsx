@@ -3,7 +3,7 @@ import "./Login.css";
 import { login, signup } from "../firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Login = ({ modalState, toggleModal }) => {
+const Login = ({ modalState, toggleModal, closeModal, forceOpen = false }) => {
   const [signState, setSignState] = useState("Sign In");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -12,16 +12,22 @@ const Login = ({ modalState, toggleModal }) => {
   
   const user_auth = async (event) => {
     event.preventDefault();
+    let isAuthenticated = false;
+
     if (signState === "Sign In") {
-      await login(email, password);
+      isAuthenticated = await login(email, password);
     } else {
-      await signup(name, email, password);
+      isAuthenticated = await signup(name, email, password);
+    }
+
+    if (isAuthenticated && closeModal) {
+      closeModal();
     }
   };
   
   return (
-    <div className={modalState ? "modal modal--open" : "modal"}>
-      <div className="modal__backdrop" onClick={toggleModal}></div>
+    <div className={modalState || forceOpen ? "modal modal--open" : "modal"}>
+      <div className="modal__backdrop" onClick={forceOpen ? undefined : toggleModal}></div>
       <div className="modal__shell">
         <div className="modal__half login__modal--left">
           <div className="login">
@@ -30,6 +36,13 @@ const Login = ({ modalState, toggleModal }) => {
                 {signState}
               </span>
             </h1>
+            <p className="login__prompt">
+              <span className="colored__words--white">
+                {signState === "Sign In"
+                  ? "Log in to open the movie library."
+                  : "Create an account to start watching."}
+              </span>
+            </p>
             <form>
               {signState === "Sign Up" ? (
                 <input value={name} onChange={(e) => {setName(e.target.value); }} type="text" placeholder="Your Name" required  />
@@ -65,7 +78,9 @@ const Login = ({ modalState, toggleModal }) => {
             </div>
 
             {/* Exit modal btn */}
-            <FontAwesomeIcon className="modal__exit" icon="fa-solid fa-xmark" fade style={{ color: "rgb(255, 239, 181)" }} onClick={toggleModal} />
+            {forceOpen ? null : (
+              <FontAwesomeIcon className="modal__exit" icon="fa-solid fa-xmark" fade style={{ color: "rgb(255, 239, 181)" }} onClick={toggleModal} />
+            )}
 
               {/* Form Switch */}
             <div className="form__switch">

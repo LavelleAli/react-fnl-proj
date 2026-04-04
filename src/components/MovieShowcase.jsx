@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./MovieShowcase.css";
 import { Link } from "react-router-dom";
 
-const MovieShowcase = ({ modalState, title, category, id }) => {
+const MovieShowcase = ({ modalState, title, category, genreId }) => {
   const [movieRes, setMovieRes] = useState([]);
 
   const options = {
@@ -17,22 +17,52 @@ const MovieShowcase = ({ modalState, title, category, id }) => {
 
   // This mounts the movies on the page automatically;
   useEffect(() => {
+    const endpoint = genreId
+      ? `https://api.themoviedb.org/3/discover/movie?with_genres=${genreId}`
+      : `https://api.themoviedb.org/3/movie/${category ? category : "now_playing"}`;
+
     fetch(
-      `https://api.themoviedb.org/3/movie/${category ? category : "now_playing"}`,
+      endpoint,
       options,
     )
       .then((res) => res.json())
       .then((res) => setMovieRes(res.results))
       .catch((err) => console.error(err));
-  }, []);
+  }, [category, genreId]);
 
-  function featuredMovies(movies) {
+  useEffect(() => {
+    const movieCards = document.querySelectorAll(".movie__display");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("movie__display--visible");
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+      },
+    );
+
+    movieCards.forEach((card) => observer.observe(card));
+
+    return () => {
+      movieCards.forEach((card) => observer.unobserve(card));
+    };
+  }, [movieRes]);
+
+  function featuredMovies(movies, index) {
     return (
       <div className="container" key={movies.id}>
         <div className="row">
-          <div className="movie__display">
+          <div
+            className="movie__display"
+            style={{ transitionDelay: `${index * 100}ms` }}
+          >
             
-              <Link to={`/player/${movies.id}`} className="movie__poster">
+              <Link to={`/movie/${movies.id}`} className="movie__poster">
                 <img
                   src={`https://image.tmdb.org/t/p/w500` + movies.backdrop_path}
                   alt=""
@@ -41,7 +71,7 @@ const MovieShowcase = ({ modalState, title, category, id }) => {
 
             <p className="movie__title">
               <span className="colored__words--white">
-                {movies.original_title}
+                {movies.title}
               </span>
             </p>
 
@@ -59,7 +89,7 @@ const MovieShowcase = ({ modalState, title, category, id }) => {
       <div className="movie__list--wrapper">
         <h2 className="feature__list">{title ? title : "Popular Movies"}</h2>
         <div className="movie__list">
-          {movieRes.map((movies) => featuredMovies(movies)).slice(0, 4)}
+          {movieRes.slice(0, 6).map((movies, index) => featuredMovies(movies, index))}
         </div>
       </div>
     </div>

@@ -1,0 +1,120 @@
+.movie__details {
+  min-height: 100vh;
+  padding: 120px 48px 64px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: movie-details-fade-in 420ms ease;
+}
+
+.movie__details--loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 32px;
+}
+
+.movie__details--back {
+  background: transparent;
+  border: 0;
+  color: rgb(255, 239, 181);
+  font-size: 2.5rem;
+  cursor: pointer;
+  margin-bottom: 32px;
+}
+
+.movie__details--content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: movie-details-content-rise 520ms ease;
+}
+
+.movie__details--poster img {
+  width: 320px;
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+.movie__details--info {
+  max-width: 620px;
+}
+
+.movie__details--title {
+  font-size: 56px;
+  margin-bottom: 16px;
+}
+
+.movie__details--meta,
+.movie__details--genres,
+.movie__details--overview {
+  font-size: 22px;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.movie__details--play {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffe24d, #f5b700);
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  cursor: pointer;
+}
+
+.movie__details--play:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(245, 183, 0, 0.28);
+}
+
+@keyframes movie-details-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes movie-details-content-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .movie__details {
+    padding: 110px 20px 48px;
+  }
+
+  .movie__details--content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .movie__details--title {
+    font-size: 40px;
+  }
+
+  .movie__details--meta,
+  .movie__details--genres,
+  .movie__details--overview {
+    font-size: 18px;
+  }
+}

@@ -23,6 +23,16 @@
     justify-content: center;
     margin-bottom: 32px;
     border-radius: 10px;
+    opacity: 0;
+    animation: landing-image-fade-in 5s ease forwards;
+}
 
-    
+@keyframes landing-image-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
