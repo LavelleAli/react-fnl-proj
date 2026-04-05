@@ -1,6 +1,5 @@
 import Landing from "../components/Landing";
 import MovieShowcase from "../components/MovieShowcase";
-import SearchResults from "../components/SearchResults";
 // import "./Home.css";
 
 const Home = ({ modalState }) => {
