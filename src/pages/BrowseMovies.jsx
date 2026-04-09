@@ -7,7 +7,7 @@ import MovieShowcase from "../components/MovieShowcase";
 const BrowseMovies = () => {
   const [selectedGenre, setSelectedGenre] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState({ movies: [], tapVideos: [] });
   const [activeInput, setActiveInput] = useState("");
 
   function handleSearchResultsChange(nextSearchTerm, nextResults) {
@@ -52,6 +52,41 @@ const BrowseMovies = () => {
     );
   }
 
+  function tapVideoCard(video, index) {
+    return (
+      <div
+        className="movie__card--search movie__search--result-card"
+        key={`${searchTerm}-${video.id}`}
+        style={{ animationDelay: `${index * 120}ms` }}
+      >
+        <div className="movie__card--container">
+          <a
+            href={video.videoUrl || video.tapVideoPageUrl}
+            className="movie__poster"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <p className="movie__card--item search__results">
+              <img
+                src={
+                  video.thumbnail ||
+                  "https://via.placeholder.com/500x281?text=TapVideo"
+                }
+                alt={video.title}
+              />
+            </p>
+            <p className="movie__card--item">
+              <span className="colored__words--white">{video.title}</span>
+            </p>
+          </a>
+          <p className="movie__card--item">
+            <span className="colored__words--white">{video.speaker}</span>
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   const isSearchActive = searchTerm.trim() !== "";
 
   return (
@@ -68,12 +103,44 @@ const BrowseMovies = () => {
         showResults={activeInput === "genre"}
       />
       {activeInput === "search" && isSearchActive && (
-        <div className="movie__info">
-          {searchResults.map((movie, index) => searchMovieCard(movie, index))}
-        </div>
+        <>
+          <div className="movie__info">
+            {searchResults.movies.map((movie, index) => searchMovieCard(movie, index))}
+          </div>
+          {searchResults.tapVideos.length > 0 && (
+            <>
+              <h2 className="movie__header" style={{ fontSize: "2rem", marginTop: "16px" }}>
+                <span className="colored__words--white">TapVideo Results</span>
+              </h2>
+              <div className="movie__info">
+                {searchResults.tapVideos.map((video, index) => tapVideoCard(video, index))}
+              </div>
+            </>
+          )}
+          {searchResults.movies.length === 0 && searchResults.tapVideos.length === 0 && (
+            <div className="auth__prompt">
+              <h2 className="auth__prompt--title">
+                <span className="colored__words--white">
+                  No movie or TapVideo matches found for "{searchTerm}".
+                </span>
+              </h2>
+              <Link className="home__btn auth__prompt--button" to="/tapvideo-library">
+                <span className="colored__words--white">Browse All TapVideo Videos</span>
+              </Link>
+            </div>
+          )}
+        </>
       )}
       {!selectedGenre && !isSearchActive && (
         <>
+          <div className="auth__prompt" style={{ marginTop: "0" }}>
+            <h2 className="auth__prompt--title">
+              <span className="colored__words--white">Looking for archive lectures too?</span>
+            </h2>
+            <Link className="home__btn auth__prompt--button" to="/tapvideo-library">
+              <span className="colored__words--white">Open TapVideo Library</span>
+            </Link>
+          </div>
           <MovieShowcase title={"Action"} genreId={28} />
           <MovieShowcase title={"Comedy"} genreId={35} />
           <MovieShowcase title={"Horror"} genreId={27} />

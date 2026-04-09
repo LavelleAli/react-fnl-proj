@@ -4,6 +4,8 @@ import Home from "./pages/Home.jsx";
 import BrowseMovies from "./pages/BrowseMovies.jsx";
 import Login from "./pages/Login.jsx";
 import Player from "./pages/Player.jsx";
+import TapVideo from "./pages/TapVideo.jsx";
+import TapVideoLibrary from "./pages/TapVideoLibrary.jsx";
 import MovieDetails from "./components/MovieDetails.jsx";
 import Footer from "./components/Footer.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -82,6 +84,8 @@ function App() {
                 : renderAuthPrompt("Log in to play movies.")
             }
           />
+          <Route path="/tapvideo" element={<TapVideo />} />
+          <Route path="/tapvideo-library" element={<TapVideoLibrary />} />
         </Routes>
         <Login modalState={modalState} toggleModal={toggleModal} closeModal={closeModal} />
         <Footer />

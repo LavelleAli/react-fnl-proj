@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./SearchResults.css";
+import tapVideoArchive from "../data/tapvideoArchive.json";
+import { searchTapVideoEntries } from "../lib/tapvideo";
 
 const SearchResults = ({ onSearchResultsChange, renderResults = true }) => {
   const [movieSearched, setMovieSearched] = useState("");
@@ -20,11 +22,12 @@ const SearchResults = ({ onSearchResultsChange, renderResults = true }) => {
   async function searchMovie(event) {
     const searchTerm = event.target.value;
     setMovieSearched(searchTerm);
+    const nextTapVideoResults = searchTapVideoEntries(tapVideoArchive, searchTerm);
 
     if (!searchTerm.trim()) {
       setFoundMovies([]);
       if (onSearchResultsChange) {
-        onSearchResultsChange(searchTerm, []);
+        onSearchResultsChange(searchTerm, { movies: [], tapVideos: [] });
       }
       return;
     }
@@ -37,7 +40,10 @@ const SearchResults = ({ onSearchResultsChange, renderResults = true }) => {
     const nextResults = data.results || [];
     setFoundMovies(nextResults);
     if (onSearchResultsChange) {
-      onSearchResultsChange(searchTerm, nextResults);
+      onSearchResultsChange(searchTerm, {
+        movies: nextResults,
+        tapVideos: nextTapVideoResults,
+      });
     }
   }
 
