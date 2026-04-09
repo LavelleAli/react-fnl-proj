@@ -27,11 +27,34 @@ Section: Footer
 .footer__links {
   margin: 0 auto;
   font-size: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .colored__words--white {
   color: rgb(255, 255, 255);
   filter: drop-shadow(0px 0px 7px #ffe604);
+}
+
+.footer__arrow-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.footer__arrow-link--floating {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+.footer__arrow-icon {
+  filter: drop-shadow(0px 0px 8px rgba(255, 212, 59, 0.85));
 }
 
 /* 
